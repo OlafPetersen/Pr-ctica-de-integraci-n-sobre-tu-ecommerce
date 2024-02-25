@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+</head>
+<body>
+    <h1>Productos</h1>
+    <ul>
+        <% products.forEach(product => { %>
+            <li>
+                <h2><%= product.name %></h2>
+                <p>Precio: <%= product.price %></p>
+                <p>Categoría: <%= product.category %></p>
+                <form action="/api/carts/:cid/products/:pid" method="post">
+                    <input type="hidden" name="productId" value="<%= product._id %>">
+                    <input type="submit" value="Agregar al carrito">
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
